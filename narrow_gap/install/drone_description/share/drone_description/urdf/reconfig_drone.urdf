@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="reconfig_drone">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00663059164527123 -0.000443757005428345 -0.0124544770406071"
+        rpy="0 0 0" />
+      <mass
+        value="0.0642799463011298" />
+      <inertia
+        ixx="0.00012788855583822"
+        ixy="-4.68637135877541E-07"
+        ixz="4.57510840882536E-06"
+        iyy="0.000159671803517222"
+        iyz="5.10141783682572E-05"
+        izz="0.000230735800886499" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/base_link.STL" scale="1 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/base_link.STL" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="hinge_2">
+    <inertial>
+      <origin
+        xyz="-0.0766063786190889 -0.094771134274111 0.0685711402719996"
+        rpy="0 0 0" />
+      <mass
+        value="0.0249388596475328" />
+      <inertia
+        ixx="3.59319455483028E-05"
+        ixy="-1.91914140378135E-05"
+        ixz="1.06246008065473E-05"
+        iyy="2.54915186109624E-05"
+        iyz="1.44155345988235E-05"
+        izz="4.37390281143096E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/hinge_2.STL" scale="1 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/hinge_2.STL" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hinge2"
+    type="revolute">
+    <origin
+      xyz="0.20659 -0.12801 0.047422"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hinge_2" />
+    <axis
+      xyz="0.029675 0.46215 0.8863" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rotor_2">
+    <inertial>
+      <origin
+        xyz="2.95302722197431E-05 -0.00104988649027271 -0.00221068957657655"
+        rpy="0 0 0" />
+      <mass
+        value="0.00644399418639987" />
+      <inertia
+        ixx="1.31004011071418E-05"
+        ixy="-1.10833956703584E-05"
+        ixz="5.10398838896428E-06"
+        iyy="1.38919686482832E-05"
+        iyz="4.96604553008046E-06"
+        izz="2.23828737346972E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/rotor_2.STL" scale="1 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/rotor_2.STL" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rotor2"
+    type="continuous">
+    <origin
+      xyz="-0.1054 -0.11263 0.13223"
+      rpy="0 0 0" />
+    <parent
+      link="hinge_2" />
+    <child
+      link="rotor_2" />
+    <axis
+      xyz="0.012193 -0.42873 -0.90335" />
+  </joint>
+  <link
+    name="hinge_3">
+    <inertial>
+      <origin
+        xyz="0.113610258380443 -0.066362344027266 0.0473668948663512"
+        rpy="0 0 0" />
+      <mass
+        value="0.0249388365673588" />
+      <inertia
+        ixx="1.90147662225321E-05"
+        ixy="2.03230402965866E-05"
+        ixz="-9.63662301497786E-06"
+        iyy="3.76828477523843E-05"
+        iyz="6.70207175297561E-06"
+        izz="4.84635991577892E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/hinge_3.STL" scale="1 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/hinge_3.STL" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hinge3"
+    type="revolute">
+    <origin
+      xyz="0.17071 0.15423 -0.098545"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hinge_3" />
+    <axis
+      xyz="0.029675 0.46215 0.8863" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rotor_3">
+    <inertial>
+      <origin
+        xyz="8.13825168199389E-05 -0.00129914720324242 -0.00207264038480029"
+        rpy="0 0 0" />
+      <mass
+        value="0.00644409720484778" />
+      <inertia
+        ixx="4.08491744444744E-06"
+        ixy="-7.96930848421415E-06"
+        ixz="4.19491440578657E-06"
+        iyy="2.15059314683348E-05"
+        iyz="1.67411996487092E-06"
+        izz="2.37847612955688E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/rotor_3.STL" scale="1 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/rotor_3.STL" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rotor3"
+    type="continuous">
+    <origin
+      xyz="0.15888 -0.073194 0.10176"
+      rpy="0 0 0" />
+    <parent
+      link="hinge_3" />
+    <child
+      link="rotor_3" />
+    <axis
+      xyz="0.033001 -0.53096 -0.84675" />
+  </joint>
+  <link
+    name="hinge_4">
+    <inertial>
+      <origin
+        xyz="0.0901564491128639 0.0995402990210753 -0.0382897502240692"
+        rpy="0 0 0" />
+      <mass
+        value="0.0249388577313197" />
+      <inertia
+        ixx="3.06673596311067E-05"
+        ixy="-2.05495324352358E-05"
+        ixz="1.13108372908801E-05"
+        iyy="2.94730657485614E-05"
+        iyz="1.21542975427686E-05"
+        izz="4.50219305192509E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/hinge_4.STL" scale="1 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/hinge_4.STL" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hinge4"
+    type="revolute">
+    <origin
+      xyz="-0.17075 0.15568 -0.08787"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hinge_4" />
+    <axis
+      xyz="0.029675 0.46215 0.8863" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rotor_4">
+    <inertial>
+      <origin
+        xyz="0.000196496779613586 -0.00196720680955065 -0.00410081089551315"
+        rpy="0 0 0" />
+      <mass
+        value="0.00644401971333641" />
+      <inertia
+        ixx="5.06387913916726E-06"
+        ixy="8.44244623094866E-06"
+        ixz="-5.00612893520301E-06"
+        iyy="2.09404920750107E-05"
+        iyz="2.20120077872242E-06"
+        izz="2.33706566053972E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/rotor_4.STL" scale="1 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/rotor_4.STL" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rotor4"
+    type="continuous">
+    <origin
+      xyz="0.12598 0.15631 -0.017708"
+      rpy="0 0 0" />
+    <parent
+      link="hinge_4" />
+    <child
+      link="rotor_4" />
+    <axis
+      xyz="0.043803 -0.43233 -0.90065" />
+  </joint>
+  <link
+    name="hinge_5">
+    <inertial>
+      <origin
+        xyz="-0.118831768401381 0.0719079746162121 -0.0165342292727982"
+        rpy="0 0 0" />
+      <mass
+        value="0.0249388764323699" />
+      <inertia
+        ixx="1.55406167141378E-05"
+        ixy="1.91255898594345E-05"
+        ixz="-8.62317923218837E-06"
+        iyy="4.03320758722714E-05"
+        iyz="5.1988626534092E-06"
+        izz="4.92892172046226E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/hinge_5.STL" scale="1 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/hinge_5.STL" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hinge5"
+    type="revolute">
+    <origin
+      xyz="-0.15914 -0.16974 0.081425"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hinge_5" />
+    <axis
+      xyz="0.029675 0.46215 0.8863" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="rotor_5">
+    <inertial>
+      <origin
+        xyz="-0.000121922998873647 -0.00104811368962757 -0.00220831965886863"
+        rpy="0 0 0" />
+      <mass
+        value="0.0064439567153823" />
+      <inertia
+        ixx="2.34292299042507E-05"
+        ixy="4.69848820370818E-06"
+        ixz="-2.16288282930354E-06"
+        iyy="5.38282041368822E-06"
+        iyz="8.90084202745099E-06"
+        izz="2.05629514876919E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/rotor_5.STL" scale="1 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://drone_description/meshes/rotor_5.STL" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rotor5"
+    type="continuous">
+    <origin
+      xyz="-0.16391 0.11867 0.013142"
+      rpy="0 0 0" />
+    <parent
+      link="hinge_5" />
+    <child
+      link="rotor_5" />
+    <axis
+      xyz="-0.049666 -0.42844 -0.9022" />
+  </joint>
+  
+  <!-- Add ros2_control -->
+  <ros2_control name="DroneSystem" type="system">
+  <hardware>
+    <plugin>ros_gz_sim/SimSystem</plugin>
+  </hardware>
+
+  <!-- Hinges -->
+  <joint name="hinge2">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="hinge3">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="hinge4">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="hinge5">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <!-- Rotors -->
+  <joint name="rotor2">
+    <command_interface name="velocity"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="rotor3">
+    <command_interface name="velocity"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="rotor4">
+    <command_interface name="velocity"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="rotor5">
+    <command_interface name="velocity"/>
+    <state_interface name="velocity"/>
+  </joint>
+
+</ros2_control>
+  
+  
+  
+</robot>

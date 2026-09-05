@@ -1,0 +1,15 @@
+<sdf version="1.6">
+  <world name="test">
+    <physics name="4ms" type="ignored">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="libignition-gazebo-physics-system.so" name="ignition::gazebo::systems::Physics" />
+    <plugin filename="libignition-gazebo-scene-broadcaster-system.so" name="ignition::gazebo::systems::SceneBroadcaster" />
+    <plugin filename="libignition-gazebo-user-commands-system.so" name="ignition::gazebo::systems::UserCommands" />
+    <plugin filename="libignition-gazebo-sensors-system.so" name="ignition::gazebo::systems::Sensors" />
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/X4 UAV Config 1</uri>
+    </include>
+  </world>
+</sdf>

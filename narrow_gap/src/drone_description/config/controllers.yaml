@@ -1,0 +1,18 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    rotor_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+rotor_velocity_controller:
+  ros__parameters:
+    joints:
+      - rotor2
+      - rotor3
+      - rotor4
+      - rotor5
+

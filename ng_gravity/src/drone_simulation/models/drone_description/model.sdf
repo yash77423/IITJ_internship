@@ -1,0 +1,689 @@
+<?xml version="1.0"?>
+<sdf version='1.7'>
+  <model name='reconfig_drone'>
+  
+   <!-- ================= BASE LINK ================= -->
+    <link name='base_link'>
+      <gravity>true</gravity>
+      <inertial>
+        <pose>0.00663059164527123 -0.000443757005428345 -0.0124544770406071 0 0 0</pose>
+        <mass>0.064279946301129806</mass>
+        <inertia>
+          <ixx>0.00012788855583822001</ixx>
+          <ixy>-4.6863713587754099e-07</ixy>
+          <ixz>4.5751084088253604e-06</ixz>
+          <iyy>0.00015967180351722201</iyy>
+          <iyz>5.10141783682572e-05</iyz>
+          <izz>0.000230735800886499</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+
+      <sensor name="camera" type="camera">
+        <pose>0.2 0 0 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <camera>
+          <horizontal_fov>1.047</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+        </camera>
+        <topic>/camera</topic>
+      </sensor>
+    </link>
+    
+   
+    
+     <!-- ================= HINGE 2 ================= -->
+    <joint name='hinge2' type='revolute'>
+      <pose relative_to='base_link'>0.20659 -0.12801 0.047422 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>hinge_2</child>
+      <axis>
+        <xyz>0.029675 0.46215 0.8863</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>3.1400000000000001</upper>
+          <effort>10</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='hinge_2'>
+      <gravity>true</gravity>
+      <pose relative_to='hinge2'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.07660637861908889 -0.094771134274111 0.06857114027199961 0 0 0</pose>
+        <mass>0.024938859647532799</mass>
+        <inertia>
+          <ixx>3.5931945548302801e-05</ixx>
+          <ixy>-1.9191414037813501e-05</ixy>
+          <ixz>1.06246008065473e-05</ixz>
+          <iyy>2.5491518610962399e-05</iyy>
+          <iyz>1.44155345988235e-05</iyz>
+          <izz>4.3739028114309603e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='hinge_2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/hinge_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='hinge_2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/hinge_2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    
+     <!-- ================= ROTOR 2 ================= -->
+    <joint name='rotor2' type='revolute'>
+      <pose relative_to='hinge_2'>-0.1054 -0.11263 0.13223 0 0 0</pose>
+      <parent>hinge_2</parent>
+      <child>rotor_2</child>
+      <axis>
+        <xyz>0.012193 -0.42873 -0.90335</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rotor_2'>
+      <gravity>true</gravity>
+      <pose relative_to='rotor2'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>2.95302722197431e-05 -0.00104988649027271 -0.00221068957657655 0 0 0</pose>
+        <mass>0.0064439941863998701</mass>
+        <inertia>
+          <ixx>1.3100401107141801e-05</ixx>
+          <ixy>-1.1083395670358399e-05</ixy>
+          <ixz>5.1039883889642797e-06</ixz>
+          <iyy>1.3891968648283199e-05</iyy>
+          <iyz>4.9660455300804598e-06</iyz>
+          <izz>2.23828737346972e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='rotor_2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/rotor_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='rotor_2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/rotor_2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    
+     <!-- ================= HINGE 3 ================= -->
+    <joint name='hinge3' type='revolute'>
+      <pose relative_to='base_link'>0.17071 0.15423 -0.09854499999999999 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>hinge_3</child>
+      <axis>
+        <xyz>0.029675 0.46215 0.8863</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>3.1400000000000001</upper>
+          <effort>10</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='hinge_3'>
+      <gravity>true</gravity>
+      <pose relative_to='hinge3'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.113610258380443 -0.066362344027266 0.0473668948663512 0 0 0</pose>
+        <mass>0.024938836567358801</mass>
+        <inertia>
+          <ixx>1.9014766222532099e-05</ixx>
+          <ixy>2.0323040296586599e-05</ixy>
+          <ixz>-9.6366230149778598e-06</ixz>
+          <iyy>3.76828477523843e-05</iyy>
+          <iyz>6.7020717529756098e-06</iyz>
+          <izz>4.8463599157789199e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='hinge_3_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/hinge_3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='hinge_3_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/hinge_3.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    
+     <!-- ================= ROTOR 3 ================= -->
+    <joint name='rotor3' type='revolute'>
+      <pose relative_to='hinge_3'>0.15888 -0.073194 0.10176 0 0 0</pose>
+      <parent>hinge_3</parent>
+      <child>rotor_3</child>
+      <axis>
+        <xyz>0.033001 -0.53096 -0.84675</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rotor_3'>
+      <gravity>true</gravity>
+      <pose relative_to='rotor3'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>8.13825168199389e-05 -0.00129914720324242 -0.00207264038480029 0 0 0</pose>
+        <mass>0.0064440972048477804</mass>
+        <inertia>
+          <ixx>4.0849174444474399e-06</ixx>
+          <ixy>-7.9693084842141502e-06</ixy>
+          <ixz>4.1949144057865699e-06</ixz>
+          <iyy>2.1505931468334801e-05</iyy>
+          <iyz>1.6741199648709199e-06</iyz>
+          <izz>2.3784761295568799e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='rotor_3_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/rotor_3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='rotor_3_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/rotor_3.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    
+     <!-- ================= HINGE 4 ================= -->
+    <joint name='hinge4' type='revolute'>
+      <pose relative_to='base_link'>-0.17075 0.15568 -0.08787 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>hinge_4</child>
+      <axis>
+        <xyz>0.029675 0.46215 0.8863</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>3.1400000000000001</upper>
+          <effort>10</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='hinge_4'>
+      <gravity>true</gravity>
+      <pose relative_to='hinge4'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.0901564491128639 0.09954029902107531 -0.0382897502240692 0 0 0</pose>
+        <mass>0.024938857731319701</mass>
+        <inertia>
+          <ixx>3.0667359631106697e-05</ixx>
+          <ixy>-2.0549532435235799e-05</ixy>
+          <ixz>1.1310837290880101e-05</ixz>
+          <iyy>2.9473065748561401e-05</iyy>
+          <iyz>1.2154297542768601e-05</iyz>
+          <izz>4.5021930519250901e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='hinge_4_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/hinge_4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='hinge_4_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/hinge_4.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    
+     <!-- ================= ROTOR 4 ================= -->
+    <joint name='rotor4' type='revolute'>
+      <pose relative_to='hinge_4'>0.12598 0.15631 -0.017708 0 0 0</pose>
+      <parent>hinge_4</parent>
+      <child>rotor_4</child>
+      <axis>
+        <xyz>0.043803 -0.43233 -0.90065</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rotor_4'>
+      <gravity>true</gravity>
+      <pose relative_to='rotor4'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.000196496779613586 -0.00196720680955065 -0.00410081089551315 0 0 0</pose>
+        <mass>0.0064440197133364104</mass>
+        <inertia>
+          <ixx>5.0638791391672599e-06</ixx>
+          <ixy>8.4424462309486608e-06</ixy>
+          <ixz>-5.0061289352030099e-06</ixz>
+          <iyy>2.0940492075010699e-05</iyy>
+          <iyz>2.2012007787224198e-06</iyz>
+          <izz>2.3370656605397201e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='rotor_4_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/rotor_4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='rotor_4_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/rotor_4.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    
+     <!-- ================= HINGE 5 ================= -->
+    <joint name='hinge5' type='revolute'>
+      <pose relative_to='base_link'>-0.15914 -0.16974 0.081425 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>hinge_5</child>
+      <axis>
+        <xyz>0.029675 0.46215 0.8863</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>3.1400000000000001</upper>
+          <effort>10</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='hinge_5'>
+      <gravity>true</gravity>
+      <pose relative_to='hinge5'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.118831768401381 0.07190797461621209 -0.0165342292727982 0 0 0</pose>
+        <mass>0.024938876432369899</mass>
+        <inertia>
+          <ixx>1.55406167141378e-05</ixx>
+          <ixy>1.9125589859434501e-05</ixy>
+          <ixz>-8.6231792321883699e-06</ixz>
+          <iyy>4.0332075872271403e-05</iyy>
+          <iyz>5.1988626534092002e-06</iyz>
+          <izz>4.9289217204622603e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='hinge_5_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/hinge_5.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='hinge_5_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/hinge_5.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    
+     <!-- ================= ROTOR 5 ================= -->
+    <joint name='rotor5' type='revolute'>
+      <pose relative_to='hinge_5'>-0.16391 0.11867 0.013142 0 0 0</pose>
+      <parent>hinge_5</parent>
+      <child>rotor_5</child>
+      <axis>
+        <xyz>-0.049666 -0.42844 -0.9022</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rotor_5'>
+      <gravity>true</gravity>
+      <pose relative_to='rotor5'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.000121922998873647 -0.00104811368962757 -0.00220831965886863 0 0 0</pose>
+        <mass>0.0064439567153823001</mass>
+        <inertia>
+          <ixx>2.3429229904250699e-05</ixx>
+          <ixy>4.6984882037081802e-06</ixy>
+          <ixz>-2.1628828293035401e-06</ixz>
+          <iyy>5.38282041368822e-06</iyy>
+          <iyz>8.9008420274509905e-06</iyz>
+          <izz>2.05629514876919e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='rotor_5_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/rotor_5.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='rotor_5_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/rotor_5.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    
+     <!-- ================= PLUGINS ================= -->
+     
+     <!-- ================= Joint Position Controller Plugin for HINGES ================= -->
+     
+     <plugin filename="libignition-gazebo-joint-position-controller-system.so"
+        name="ignition::gazebo::systems::JointPositionController">
+       <joint_name>hinge2</joint_name>
+       <p_gain>10.0</p_gain>
+       <i_gain>0.0</i_gain>
+       <d_gain>0.1</d_gain>
+       <topic>/model/reconfig_drone/joint/hinge2/0/cmd_pos</topic>
+     </plugin>
+     
+     <plugin filename="libignition-gazebo-joint-position-controller-system.so"
+        name="ignition::gazebo::systems::JointPositionController">
+       <joint_name>hinge3</joint_name>
+       <p_gain>10.0</p_gain>
+       <i_gain>0.0</i_gain>
+       <d_gain>0.1</d_gain>
+       <topic>/model/reconfig_drone/joint/hinge3/0/cmd_pos</topic>
+     </plugin>
+
+     <plugin filename="libignition-gazebo-joint-position-controller-system.so"
+        name="ignition::gazebo::systems::JointPositionController">
+       <joint_name>hinge4</joint_name>
+       <p_gain>10.0</p_gain>
+       <i_gain>0.0</i_gain>
+       <d_gain>0.1</d_gain>
+       <topic>/model/reconfig_drone/joint/hinge4/0/cmd_pos</topic>
+     </plugin>
+
+     <plugin filename="libignition-gazebo-joint-position-controller-system.so"
+        name="ignition::gazebo::systems::JointPositionController">
+       <joint_name>hinge5</joint_name>
+       <p_gain>10.0</p_gain>
+       <i_gain>0.0</i_gain>
+       <d_gain>0.1</d_gain>
+       <topic>/model/reconfig_drone/joint/hinge5/0/cmd_pos</topic>
+     </plugin>
+    
+     <!-- ================= MULTICOPTER MOTOR MODELS ================= -->
+     <plugin filename="libignition-gazebo-multicopter-motor-model-system.so"
+        name="ignition::gazebo::systems::MulticopterMotorModel">
+        <robotNamespace>reconfig_drone</robotNamespace>
+        <jointName>rotor2</jointName>
+        <linkName>rotor_2</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>1100</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.06</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <motorNumber>0</motorNumber>
+        <rotorDragCoefficient>0.000175</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      </plugin>
+
+      <plugin filename="libignition-gazebo-multicopter-motor-model-system.so"
+        name="ignition::gazebo::systems::MulticopterMotorModel">
+        <robotNamespace>reconfig_drone</robotNamespace>
+        <jointName>rotor3</jointName>
+        <linkName>rotor_3</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>1100</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.06</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <motorNumber>1</motorNumber>
+        <rotorDragCoefficient>0.000175</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      </plugin>
+
+      <plugin filename="libignition-gazebo-multicopter-motor-model-system.so"
+        name="ignition::gazebo::systems::MulticopterMotorModel">
+        <robotNamespace>reconfig_drone</robotNamespace>
+        <jointName>rotor4</jointName>
+        <linkName>rotor_4</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>1100</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.06</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <motorNumber>2</motorNumber>
+        <rotorDragCoefficient>0.000175</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      </plugin>
+
+      <plugin filename="libignition-gazebo-multicopter-motor-model-system.so"
+        name="ignition::gazebo::systems::MulticopterMotorModel">
+        <robotNamespace>reconfig_drone</robotNamespace>
+        <jointName>rotor5</jointName>
+        <linkName>rotor_5</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>1100</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.06</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <motorNumber>3</motorNumber>
+        <rotorDragCoefficient>0.000175</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      </plugin>
+
+     
+
+
+     
+
+     
+      
+  
+  <!-- ================= MULTICOPTER VELOCITY CONTROL ================= -->
+      <plugin filename="libignition-gazebo-multicopter-control-system.so"
+        name="ignition::gazebo::systems::MulticopterVelocityControl">
+        <robotNamespace>reconfig_drone</robotNamespace>
+        <commandSubTopic>cmd_vel</commandSubTopic>
+        <enableSubTopic>enable</enableSubTopic>
+        <comLinkName>base_link</comLinkName>
+        <velocityGain>2.7 2.7 2.7</velocityGain>
+        <attitudeGain>2 3 0.15</attitudeGain>
+        <angularRateGain>0.4 0.52 0.18</angularRateGain>
+        <maximumLinearAcceleration>2 2 2</maximumLinearAcceleration>
+        <rotorConfiguration>
+          <rotor>
+            <jointName>rotor2</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.06</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor3</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.06</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor4</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.06</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor5</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.06</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+        </rotorConfiguration>
+      </plugin>
+    <!-- ================= ODOMETRY PUBLISHER ================= -->
+      <plugin filename="libignition-gazebo-odometry-publisher-system.so"
+        name="ignition::gazebo::systems::OdometryPublisher">
+        <dimensions>3</dimensions>
+      </plugin>
+  </model>
+</sdf>

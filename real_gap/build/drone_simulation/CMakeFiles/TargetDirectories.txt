@@ -1,0 +1,9 @@
+/home/birdlab1/Yash/real_gap/build/drone_simulation/CMakeFiles/uninstall.dir
+/home/birdlab1/Yash/real_gap/build/drone_simulation/CMakeFiles/drone_simulation_uninstall.dir
+/home/birdlab1/Yash/real_gap/build/drone_simulation/CMakeFiles/test.dir
+/home/birdlab1/Yash/real_gap/build/drone_simulation/CMakeFiles/edit_cache.dir
+/home/birdlab1/Yash/real_gap/build/drone_simulation/CMakeFiles/rebuild_cache.dir
+/home/birdlab1/Yash/real_gap/build/drone_simulation/CMakeFiles/list_install_components.dir
+/home/birdlab1/Yash/real_gap/build/drone_simulation/CMakeFiles/install.dir
+/home/birdlab1/Yash/real_gap/build/drone_simulation/CMakeFiles/install/local.dir
+/home/birdlab1/Yash/real_gap/build/drone_simulation/CMakeFiles/install/strip.dir

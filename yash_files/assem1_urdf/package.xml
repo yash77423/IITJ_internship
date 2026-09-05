@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>assem1_urdf</name>
+  <version>0.0.0</version>
+  <description>Drone URDF package</description>
+
+  <maintainer email="you@email.com">Yash</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>ros_gz</exec_depend>
+
+</package>

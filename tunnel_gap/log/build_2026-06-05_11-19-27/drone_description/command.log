@@ -1,0 +1,6 @@
+Invoking command in '/home/birdlab1/Yash/tunnel_gap/build/drone_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/birdlab1/Yash/tunnel_gap/src/drone_description -DCMAKE_INSTALL_PREFIX=/home/birdlab1/Yash/tunnel_gap/install/drone_description
+Invoked command in '/home/birdlab1/Yash/tunnel_gap/build/drone_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/birdlab1/Yash/tunnel_gap/src/drone_description -DCMAKE_INSTALL_PREFIX=/home/birdlab1/Yash/tunnel_gap/install/drone_description
+Invoking command in '/home/birdlab1/Yash/tunnel_gap/build/drone_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/birdlab1/Yash/tunnel_gap/build/drone_description -- -j20 -l20
+Invoked command in '/home/birdlab1/Yash/tunnel_gap/build/drone_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/birdlab1/Yash/tunnel_gap/build/drone_description -- -j20 -l20
+Invoking command in '/home/birdlab1/Yash/tunnel_gap/build/drone_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/birdlab1/Yash/tunnel_gap/build/drone_description
+Invoked command in '/home/birdlab1/Yash/tunnel_gap/build/drone_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/birdlab1/Yash/tunnel_gap/build/drone_description
