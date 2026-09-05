@@ -49,10 +49,10 @@ The project was exploratory in nature and developed incrementally from scratch o
 
 ```text
 ├── narrow_gap/          # Main workspace (gap world, no gravity/dynamics)
-├── ng_gravity/         # Workspace with gravity and drone dynamics
-├── real_gap/         # Real-world webcam feed integration
-├── tunnel_gap/        # Tunnel world testing workspace
-├── hardware/         # Hardware testing files (ESP8266 + Servo)
+├── ng_gravity/          # Workspace with gravity and drone dynamics
+├── real_gap/            # Real-world webcam feed integration
+├── tunnel_gap/          # Tunnel world testing workspace
+├── hardware/            # Hardware testing files (ESP8266 + Servo)
 └── README.md
 ```
 
